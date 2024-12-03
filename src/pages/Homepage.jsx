@@ -54,7 +54,7 @@ const Homepage = () => {
   return (
     <div className="homepage pb-10">
       <div className="container mx-auto px-4">
-        <div className="hero items-center justify-start gap-16 pt-32 w-full">
+        <div className="hero items-center justify-start gap-16 pt-32 w-full md:pb-14 pb-28">
           <div className="box text-left m-8 md:m-32">
             <h1 className="lg:text-5xl/tight text-4xl font-medium mb-3">
               Hi there👋, I&apos;m{" "}
