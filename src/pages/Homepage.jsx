@@ -52,7 +52,7 @@ const Homepage = () => {
   };
 
   return (
-    <div className="homepage pb-10">
+    <div className="homepage pb-10 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <div className="hero items-center justify-start gap-16 pt-28 w-full md:pb-14 pb-28">
           <div className="box text-left m-8 md:m-32">
