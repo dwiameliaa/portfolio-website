@@ -48,26 +48,26 @@ const Navbar = () => {
           >
             <li className="flex items-center gap-3">
               <i className="ri-home-2-line text-3xl md:hidden block"></i>
-              <a href="#home" className="font-medium opacity-75 link link-hover">Home</a>
+              <a href="#home" className="font-medium opacity-75 link link-hover hover:text-sky-500">Home</a>
             </li>
             <li className="flex items-center gap-3">
               <i className="ri-information-line text-3xl md:hidden block"></i>
-              <a href="#about" className="font-medium opacity-75 link link-hover">About</a>
+              <a href="#about" className="font-medium opacity-75 link link-hover hover:text-sky-500">About</a>
             </li>
             <li className="flex items-center gap-3">
               <i className="ri-image-line text-3xl md:hidden block"></i>
-              <a href="#projects" className="font-medium opacity-75 link link-hover">Projects</a>
+              <a href="#projects" className="font-medium opacity-75 link link-hover hover:text-sky-500">Projects</a>
             </li>
             <li className="flex items-center gap-3">
               <i className="ri-phone-line text-3xl md:hidden block"></i>
-              <a href="#contact" className="font-medium opacity-75 link link-hover">Contact</a>
+              <a href="#contact" className="font-medium opacity-75 link link-hover hover:text-sky-500">Contact</a>
             </li>
           </ul>
 
           <div className="social flex items-center gap-2">
             <a
               href="#social"
-              className="bg-sky-400 px-5 py-2 rounded-full text-white font-bold hover:bg-sky-500 transition-all hidden sm:block"
+              className="bg-sky-400 px-5 py-2 rounded-full text-white font-bold hover:bg-sky-600 transition-all hidden sm:block"
             >
               Let&apos;s connect!
             </a>

@@ -73,7 +73,7 @@ const Homepage = () => {
             </p>
             <a
               href="#about"
-              className="bg-sky-400 hover:bg-sky-500 transition-all py-2 px-4 text-white shadow rounded-full"
+              className="bg-sky-400 hover:bg-sky-600 transition-all py-2 px-4 text-white shadow rounded-full"
             >
               About me <i className="ri-eye-line ms-1"></i>
             </a>
