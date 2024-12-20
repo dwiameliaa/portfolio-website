@@ -29,7 +29,7 @@ const Navbar = () => {
   }, []);
 
   let scrollActive = scroll
-    ? "py-5 shadow bg-[rgba(0,0,0,0.3)] backdrop-blur-[10px] fixed top-0 left-0 w-full"
+    ? "py-5 shadow bg-[rgba(255,255,255,0.4)] backdrop-blur-[10px] fixed top-0 left-0 w-full"
     : "py-4";
 
   return (
