@@ -47,7 +47,7 @@ const Homepage = () => {
     // Simulate sending process
     setTimeout(() => {
       setButtonText("Send Message");
-      alert("Message sent successfully!");
+      alert("Sorry, this feature is still not developed");
     }, 2000);
   };
 
