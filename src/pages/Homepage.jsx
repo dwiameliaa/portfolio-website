@@ -78,7 +78,6 @@ const Homepage = () => {
               About me <i className="ri-eye-line ms-1"></i>
             </a>
           </div>
-          <div className="box">{/* Tambahkan gambar jika diperlukan */}</div>
         </div>
 
         <div className="about grid md:grid-cols-2 grid-cols-1 items-center gap-10 md:pt-14 pt-28 bg-[#1f314d] w-screen relative left-1/2 -translate-x-1/2 px-11 lg:px-20 md:pb-14 pb-28" id="about">
@@ -210,9 +209,7 @@ const Homepage = () => {
         </div>
         
       </div>
-    </div>
-
-    
+    </div>    
   );
 };
 
