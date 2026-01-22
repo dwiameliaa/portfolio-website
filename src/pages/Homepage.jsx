@@ -1,5 +1,44 @@
 import { useState, useEffect } from "react";
 
+const projects = [
+  {
+    title: "Linktree Project",
+    desc: "Manage your links with ease!",
+    img: "./linktree.png",
+    link: "https://linktree-dwi.vercel.app/",
+  },
+  {
+    title: "GennieUS",
+    desc: "An Android-based educational application featuring interactive games",
+    img: "./gennieus.jpeg",
+    link: "https://github.com/dwiameliaa/GennieUS",
+  },
+  {
+    title: "YummyBook",
+    desc: "A digital recipe book application",
+    img: "./yummy.jpeg",
+    link: "https://github.com/dwiameliaa/YummyBook",
+  },
+  {
+    title: "BookStore",
+    desc: "A website for browsing and purchasing books online",
+    img: "./bookstore.png",
+    link: "https://github.com/dwiameliaa/booksales-fe",
+  },
+  {
+    title: "Karakteristik Antena",
+    desc: "A website for antenna parameter calculation and visualization",
+    img: "./antena.png",
+    link: "https://github.com/dwiameliaa/KarAnt",
+  },
+  {
+    title: "Website Pre-Order Pakaian",
+    desc: "A web application for managing clothing pre-orders and product sales, featuring user and admin dashboards",
+    img: "./preorder.png",
+    link: "https://github.com/dwiameliaa/Website-PreOrder-Fashion-FE",
+  },
+];
+
 const Homepage = () => {
   const [text, setText] = useState(""); // Menyimpan teks saat ini
   const [isDeleting, setIsDeleting] = useState(false); // Status mengetik atau menghapus
@@ -51,17 +90,32 @@ const Homepage = () => {
     }, 2000);
   };
 
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleCards = 3;
+
+  const nextSlide = () => {
+    if (startIndex + visibleCards < projects.length) {
+      setStartIndex(startIndex + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1);
+    }
+  };
+
   return (
-    <div className="homepage pb-10 overflow-x-hidden">
-      <div className="container mx-auto px-4">
-        <div className="hero items-center justify-start gap-16 pt-28 w-full md:pb-14 pb-28">
-          <div className="box text-left m-8 md:m-32">
-            <h1 className="lg:text-5xl/tight text-4xl font-medium mb-3">
+    <div className="pb-10 overflow-x-hidden homepage">
+      <div className="container px-4 mx-auto">
+        <div className="items-center justify-start w-full gap-16 hero pt-28 md:pb-14 pb-28">
+          <div className="m-8 text-left box md:m-32">
+            <h1 className="mb-3 text-4xl font-medium lg:text-5xl/tight">
               Hi there👋, I&apos;m{" "}
-              <span className="text-sky-500 font-semibold">Amelia</span>
+              <span className="font-semibold text-sky-500">Amelia</span>
             </h1>
             {/* Tambahkan efek mengetik pada elemen ini */}
-            <h2 className="lg:text-3xl/tight text-2xl font-medium mb-7">
+            <h2 className="text-2xl font-medium lg:text-3xl/tight mb-7">
               {text}
               <span className="blinking-cursor text-sky-400">|</span>
             </h2>
@@ -73,14 +127,17 @@ const Homepage = () => {
             </p>
             <a
               href="#about"
-              className="bg-sky-400 hover:bg-sky-600 transition-all py-2 px-4 text-white shadow rounded-full"
+              className="px-4 py-2 text-white transition-all rounded-full shadow bg-sky-400 hover:bg-sky-600"
             >
               About me <i className="ri-eye-line ms-1"></i>
             </a>
           </div>
         </div>
 
-        <div className="about grid md:grid-cols-2 grid-cols-1 items-center gap-10 md:pt-14 pt-28 bg-[#1f314d] w-screen relative left-1/2 -translate-x-1/2 px-11 lg:px-20 md:pb-14 pb-28" id="about">
+        <div
+          className="about grid md:grid-cols-2 grid-cols-1 items-center gap-10 md:pt-14 pt-28 bg-[#1f314d] w-screen relative left-1/2 -translate-x-1/2 px-11 lg:px-20 md:pb-14 pb-28"
+          id="about"
+        >
           <div className="box">
             {/* <img src="./mee.jpg" alt="About Image"/> */}
             <img
@@ -91,10 +148,10 @@ const Homepage = () => {
             />
           </div>
           <div className="box text-[#e5e7eb]">
-            <h1 className="lg:text-5xl/tight text-4xl font-medium mb-3">
+            <h1 className="mb-3 text-4xl font-medium lg:text-5xl/tight">
               About <span className="text-[#f5e2b8] font-semibold">me</span>
             </h1>
-            <p className="text-base/8 mb-7 text-justify">
+            <p className="text-justify text-base/8 mb-7">
               Hello!! My name is{" "}
               <span className="text-[#f5e2b8] font-semibold">
                 Dwi Lestari Amelia
@@ -111,7 +168,7 @@ const Homepage = () => {
               my passion lies in understanding the process and finding effective
               solutions.
             </p>
-            <p className="text-base/8 mb-7 text-justify">
+            <p className="text-justify text-base/8 mb-7">
               Right now, I&apos;m especially focused on web development, as I
               dive deeper into this exciting field. There&apos;s no end to the
               possibilities, and that excites me as I continue to grow and
@@ -121,47 +178,83 @@ const Homepage = () => {
         </div>
 
         <div className="projects" id="projects">
-          <h1 className="lg:text-5xl/tight text-4xl font-medium mb-11 text-center gap-10 md:pt-28 pt-28">
+          <h1 className="mb-12 text-4xl font-medium text-center lg:text-5xl pt-28">
             Projects
           </h1>
-          <div className="flex justify-center">
-            <div className="card glass w-96 overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl relative z-0">
-              <figure className="overflow-hidden">
-                <img
-                  className="w-full h-48 object-cover"
-                  src="./linktree.png"
-                  alt="Projects Image"
-                />
-              </figure>
-              <div className="card-body p-5">
-                <h2 className="card-title text-2xl font-bold mb-2">
-                  Linktree Project
-                </h2>
-                <p className="text-gray-700">Manage your links with ease!</p>
-                <div className="card-actions justify-end mt-4">
-                  <a
-                    href="https://linktree-dwi.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    // className="btn btn-primary transition-transform transform hover:scale-110"
-                    className="bg-sky-400 text-white px-4 py-2 rounded-lg transition-transform transform hover:scale-110 hover:bg-sky-500"
 
+          {/* Wrapper */}
+          <div className="relative px-6 mx-auto max-w-7xl">
+            {/* Cards */}
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {projects
+                .slice(startIndex, startIndex + visibleCards)
+                .map((project, index) => (
+                  <div
+                    key={index}
+                    className="card glass rounded-xl shadow-md 
+                           transition-all duration-300 ease-out 
+                           hover:scale-[1.02] hover:shadow-xl"
                   >
-                    Visit Now!
-                  </a>
-                </div>
-              </div>
+                    <figure className="overflow-hidden">
+                      <img
+                        src={project.img}
+                        alt={project.title}
+                        className="object-cover w-full h-48 transition-transform duration-300 hover:scale-105"
+                      />
+                    </figure>
+
+                    <div className="p-5 card-body">
+                      <h2 className="text-xl font-bold card-title">
+                        {project.title}
+                      </h2>
+                      <p className="text-gray-700">{project.desc}</p>
+
+                      <div className="justify-end mt-4 card-actions">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 text-white transition-all duration-300 rounded-lg bg-sky-400 hover:bg-sky-500 hover:scale-105"
+                        >
+                          Visit
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex justify-center gap-4 mt-10">
+              <button
+                onClick={prevSlide}
+                disabled={startIndex === 0}
+                className="btn btn-outline hover:bg-[#1f314d] disabled:opacity-40"
+              >
+                ◀ Prev
+              </button>
+
+              <button
+                onClick={nextSlide}
+                disabled={startIndex + visibleCards >= projects.length}
+                className="btn btn-outline hover:bg-[#1f314d] disabled:opacity-40"
+              >
+                Next ▶
+              </button>
             </div>
           </div>
         </div>
 
-        <div className="mt-40 bg-[#1f314d] text-white py-20 w-screen relative left-1/2 -translate-x-1/2" id="contact">
-          <div className="max-w-5xl mx-auto px-4">
-            <h2 className="lg:text-5xl/tight text-4xl font-medium text-center mb-10">
+        <div
+          className="mt-40 bg-[#1f314d] text-white py-20 w-screen relative left-1/2 -translate-x-1/2"
+          id="contact"
+        >
+          <div className="max-w-5xl px-4 mx-auto">
+            <h2 className="mb-10 text-4xl font-medium text-center lg:text-5xl/tight">
               Contact <span className="text-[#f5e2b8]">Me</span>
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <input
                   type="text"
                   placeholder="Full Name"
@@ -207,9 +300,8 @@ const Homepage = () => {
             </form>
           </div>
         </div>
-        
       </div>
-    </div>    
+    </div>
   );
 };
 
